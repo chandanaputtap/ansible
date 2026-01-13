@@ -15,8 +15,4 @@
     ansible.builtin.command: useradd expense
     when: USER.rc !=0  # if return code is not equal to 0, then create user
   
-  - name: Print user creation status
-    ansible.builtin.command: id expense
-    ansible.builtin.debug:
-      msg: "User created successfully"
-    when: USER.rc =0
+ 
