@@ -4,8 +4,9 @@
   tasks:
   - name: Check user exists or not
     ansible.builtin.command: id expense
+    register: USER  # output of command "id expense" will be stored in USER variable
     ignore_errors: true   # Execution won't be stopped even if user doesn't exists"
 
-  - name: say "Hello"
+  - name: print user information
     ansible.builtin.debug:
-      msg: "Hello"
+      msg: "user info: {{USER}}"
