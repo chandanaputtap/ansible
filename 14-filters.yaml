@@ -32,14 +32,14 @@
     ansible.builtin.debug:
       msg: "{{numbers | unique}}"
   
-  - name: print min and max value
-    hosts: localhost
-    vars:
-      ages: [20, 40, 67, 88]
-    tasks:
-    - name: print min and max value
-      ansible.builtin.debug:
-        msg: "Min age is {{ages | min}} and max age is {{ages | max}}"
+  # - name: print min and max value
+  #   hosts: localhost
+  #   vars:
+  #     ages: [20, 40, 67, 88]
+  #   tasks:
+  #   - name: print min and max value
+  #     ansible.builtin.debug:
+  #       msg: "Min age is {{ages | min}} and max age is {{ages | max}}"
 
   - name: Convert Dictionary to list
     hosts: localhost
