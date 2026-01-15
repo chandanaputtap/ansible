@@ -13,4 +13,46 @@
   - name: Convert to Uppercase
     ansible.builtin.debug:
       msg: "{{greeting | upper}}"
+
+- name: Convert to lowercase
+  hosts: localhost
+  vars: 
+    greeting: "HELLO!"
+  tasks:
+  - name: Convert to lowercase
+    ansible.builtin.debug:
+      msg: "{{greeting | lower}}"
+
+- name: Remove Duplicates
+  hosts: localhost
+  vars:
+    numbers: [1, 1, 2, 4, 6, 4]
+  tasks:
+  - name: Remove Duplicates
+    ansible.builtin.debug:
+      msg: "{{numbers | unique}}"
+  
+  - name: print min and max value
+    hosts: localhost
+    vars:
+      ages: [20, 40, 67, 88]
+    tasks:
+    - name: print min and max value
+      ansible.builtin.debug:
+        msg: "Min age is {{ages | min}} and max age is {{ages | max}}"
+
+  - name: Convert Dictionary to list
+    hosts: localhost
+    vars:
+      my_dict:
+        course: ansible
+        Trainer: Siva
+        Duration: 15 hrs
+    tasks:
+    - name: Before converting dictionary to list
+      ansible.builtin.debug:
+        msg: "Before Convert: {{my_dict}}"
     
+    - name: After converting dictionary to list
+      ansible.builtin.debug:
+        msg: "After convert: {{my_dict | dict2items}}"
